@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anelora – Ručně vyráběné šperky</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+    emailjs.init("KLRokHGIMGMRk1oij");
+})();
+</script>
+
+<style>
+:root {
+    --soft-pink: #fdf2f4;
+    --accent-pink: #eebdc8;
+    --luxury-pink: #d4a5a5;
+    --text-dark: #4a4a4a;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--soft-pink);
+    color: var(--text-dark);
+    scroll-behavior: smooth;
+    line-height: 1.4;
+}
+
+header {
+    background: var(--white);
+    padding: 10px 15px;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    margin-top: 5px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--luxury-pink);
+}
+
+section {
+    padding: 25px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--luxury-pink);
+    margin-bottom: 15px;
+}
+
+.logo {
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+    min-height: 50px; /* Aby tam nebyla jen čára, když se logo nenačte */
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 15px 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery img {
+    height: 280px;
+    min-width: 200px; /* Důležité: aby fotky nebyly spláclé, i když se nenačtou */
+    background-color: #fff; /* Bílé pozadí místo prázdnoty */
+    flex-shrink: 0;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    scroll-snap-align: start;
+    border: 1px solid var(--white);
+    object-fit: cover;
+}
+
+.product {
+    background: var(--white);
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    border-left: 2px solid var(--accent-pink);
+}
+
+.product h3 {
+    text-align: left;
+    margin: 0 0 10px 0;
+    color: var(--text-dark);
+    font-size: 1em;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--luxury-pink);
+    margin: 10px 0;
+}
+
+button {
+    background: var(--accent-pink);
+    color: var(--white);
+    border: none;
+    padding: 8px 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: var(--luxury-pink);
+}
+
+.contact-box {
+    background: var(--white);
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--accent-pink);
+}
+
+#cartIcon {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: var(--luxury-pink);
+    color: white;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1001;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.9em;
+}
+
+.set-box {
+    text-align: center;
+    background: #fff9fa;
+    padding: 15px;
+    border: 1px dashed var(--luxury-pink);
+    margin: 20px 0;
+}
+
+.gallery::-webkit-scrollbar {
+    height: 4px;
+}
+.gallery::-webkit-scrollbar-thumb {
+    background: var(--accent-pink);
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://i.postimg.cc/MGThZfTD/file-0000000009507246ae57f4a665fa0796.png" class="logo" alt="Anelora Logo">
+    <nav>
+        <a href="#home">Domů</a>
+        <a href="#about">O mně</a>
+        <a href="#pricing">Ceník</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#cart">Košík</a>
+    </nav>
+</header>
+
+<section id="home">
+    <h1>Vítejte u Anelora</h1>
+    <p style="text-align:center; max-width: 600px; margin: 0 auto 20px auto; font-size: 0.95em;">
+        Ručně vyráběné náramky a šperky pro ženy, které milují minimalismus a eleganci.
+    </p>
+
+    <div class="gallery">
+        <img src="https://i.postimg.cc/jSFr74G5/file-000000001a4472438b85b39760376501.png">
+        <img src="https://i.postimg.cc/3w0QCDT8/file-000000003688720aa2cf0b1dc6a5a7b4.png">
+        <img src="https://i.postimg.cc/RZDzHLj9/file-0000000039887246aab25de9cf5fe06c.png">
+        <img src="https://i.postimg.cc/CKnpHfgx/file-00000000497c720abca0b476d85746c5.png">
+        <img src="https://i.postimg.cc/KY3hrg2Z/file-000000004bfc7246bbdc793ae5fdc24e.png">
+        <img src="https://i.postimg.cc/52RMCSZ2/file-000000009fb0720a89619565571d8ad0.png">
+        <img src="https://i.postimg.cc/fRrh9f6W/file-00000000a3547246b2f8758de5d5e9e2.png">
+        <img src="https://i.postimg.cc/d0ZcmTYv/file-00000000f41c72469115e92a871d452e.png">
+        <img src="https://i.postimg.cc/ZqvzFySm/IMG-20260221-WA0039.jpg">
+        <img src="https://i.postimg.cc/0yBqw0LN/IMG-20260221-WA0040.jpg">
+        <img src="https://i.postimg.cc/VkVcCW3Y/IMG-20260221-WA0041.jpg">
+    </div>
+</section>
+
+<section id="about">
+    <h2>O mně</h2>
+    <p style="text-align: center; margin: 0;">
+        Jmenuji se Aneta Holoubková a věřím, že krása se skrývá v detailu. 
+        Každý šperk, který vytvořím, v sobě nese preciznost a osobní přístup.
+    </p>
+</section>
+
+<section id="pricing">
+    <h2>Ceník</h2>
+    <div class="product">
+        <h3>Klasický korálkový náhrdelník</h3>
+        <p class="price">100 Kč</p>
+        <button onclick="addToCart('Klasický korálkový náhrdelník', 100)">Do košíku</button>
+    </div>
+    <div class="product">
+        <h3>Náhrdelník s přívěskem</h3>
+        <p class="price">115 Kč</p>
+        <button onclick="addToCart('Náhrdelník s přívěskem', 115)">Do košíku</button>
+    </div>
+    <div class="product">
+        <h3>Jemný korálkový náramek</h3>
+        <p class="price">75 Kč</p>
+        <button onclick="addToCart('Jemný korálkový náramek', 75)">Do košíku</button>
+    </div>
+    <div class="product">
+        <h3>Náramek s přívěskem</h3>
+        <p class="price">90 Kč</p>
+        <button onclick="addToCart('Náramek s přívěskem', 90)">Do košíku</button>
+    </div>
+    <div class="product">
+        <h3>Korálkový prstýnek</h3>
+        <p class="price">50 Kč</p>
+        <button onclick="addToCart('Korálkový prstýnek', 50)">Do košíku</button>
+    </div>
+    <div class="set-box">
+        <h3>Speciální nabídka</h3>
+        <p>Při objednání setu ve stejném designu získáte slevu 20 % z celkové ceny.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontakt</h2>
+    <div class="contact-box">
+        <p>Email: anetaholoubkova4@gmail.com</p>
+        <p>Telefon: +420 722 304 979</p>
+        <p>Osobní předání: Praha 4</p>
+    </div>
+</section>
+
+<section id="cart">
+    <h2>Košík</h2>
+    <div id="cartItems"></div>
+    <p style="text-align: right; border-top: 1px solid #eee; padding-top: 10px;">
+        <strong>Celkem: <span id="totalPrice">0</span> Kč</strong>
+    </p>
+    <h3 style="margin-top: 30px;">Objednávka</h3>
+    <input type="text" id="name" placeholder="Jméno a příjmení" required>
+    <input type="email" id="email" placeholder="E-mailová adresa" required>
+    <textarea id="message" rows="3" placeholder="Poznámka (barvy, rozměry...)"></textarea>
+    <button onclick="sendOrder()" style="width: 100%; padding: 12px;">Odeslat objednávku</button>
+</section>
+
+<div id="cartIcon" onclick="location.href='#cart'">🛒</div>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price){
+    cart.push({name, price});
+    total += price;
+    updateCart();
+    alert("Zboží bylo přidáno do košíku.");
+}
+
+function updateCart(){
+    let items = "";
+    if (cart.length === 0) {
+        items = "<p style='text-align:center; color:#999; font-size:0.9em;'>Košík je prázdný</p>";
+    } else {
+        cart.forEach((item, index) => {
+            items += `<div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.9em;">
+                        <span>${item.name}</span>
+                        <span>${item.price} Kč <button onclick="removeItem(${index})" style="background:none; color:#d4a5a5; padding:0; margin-left:10px; text-transform:lowercase; letter-spacing:0;">odstranit</button></span>
+                      </div>`;
+        });
+    }
+    document.getElementById("cartItems").innerHTML = items;
+    document.getElementById("totalPrice").innerText = total;
+}
+
+function removeItem(index){
+    total -= cart[index].price;
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function sendOrder(){
+    if (cart.length === 0) {
+        alert("Před odesláním přidejte zboží do košíku.");
+        return;
+    }
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    if(!name || !email) {
+        alert("Prosím vyplňte kontaktní údaje.");
+        return;
+    }
+    let templateParams = {
+        from_name: name,
+        from_email: email,
+        message: document.getElementById("message").value,
+        order: cart.map(item => item.name + " (" + item.price + " Kč)").join(", "),
+        total: total + " Kč"
+    };
+    emailjs.send("service_hyfjq5o", "template_ai2g8pr", templateParams)
+    .then(function(response){
+        alert("Objednávka byla odeslána. Brzy se Vám ozvu!");
+        cart = [];
+        total = 0;
+        updateCart();
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    }, function(error) {
+        alert("Chyba při odesílání. Zkuste to prosím znovu.");
+    });
+}
+updateCart();
+</script>
+
+</body>
+</html>
